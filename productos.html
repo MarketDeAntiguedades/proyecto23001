@@ -26,14 +26,6 @@
             /* Agrega una sombra */
         }
     </style>
-    <script>
-        $(document).ready(function(){
-            $('#example').DataTable({
-                dom: 'lBfrtip',
-                columns: cols
-            })
-        });
-    </script>
 </head>
 
 <body>
@@ -108,5 +100,13 @@
     <script src="./js/main.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Enlace de VUE-->
     <script src="./js/productos.js"></script>
+    <script>
+        $(document){
+            $('#example').DataTable({
+                dom: 'lBfrtip',
+                columns: cols
+            })
+        };
+    </script>
 </body>
 </html>
