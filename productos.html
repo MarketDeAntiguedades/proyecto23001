@@ -102,8 +102,11 @@
     <script src="./js/productos.js"></script>
     <script>
         $(document).ready(function(){
-            $('#example').DataTable({dom: 'lBfrtip'});
-        })
+            $('#example').DataTable({
+                dom: 'lBfrtip',
+                columns: cols
+            })
+        });
     </script>
 </body>
 </html>
