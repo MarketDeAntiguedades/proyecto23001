@@ -101,12 +101,83 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Enlace de VUE-->
     <script src="./js/productos.js"></script>
     <script>
-        $(document){
+        $(document).ready(function(){
             $('#example').DataTable({
                 dom: 'lBfrtip',
-                columns: cols
-            })
-        };
+                columns: cols,
+                "paging": true,
+                "autoWidth": false,
+                "bLengthChange" : true,
+                columns:[ 
+
+                //{ defaultcontent: "", visible: false },
+
+                { "data" : "zid"},
+                { "data" : "znombre"},
+                { defaultcontent: "" },
+                { defaultcontent: "" },
+                { defaultcontent: "" },
+                { defaultcontent: "" }
+                ],
+            //ESTILO DE COLUMNA
+
+                createdRow: function( row, data, dataIndex ) {                                   
+
+                $('td', row).eq(0).css('text-align', 'center');
+
+                $('td', row).eq(1).css('text-align', 'center');
+
+                $('td', row).eq(2).css('text-align', 'center');
+
+                $('td', row).eq(3).css('text-align', 'center');
+
+                $('td', row).eq(4).css('text-align', 'center');
+
+                $('td', row).eq(5).css('text-align', 'center');
+                },
+            responsive: true,  
+            //Lenguage
+
+            "language": {                
+
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ning&uacute;n dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "",
+                "searchPlaceholder":"Buscar en Tabla..." ,
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "&Uacute;ltimo",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                    },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+
+                //Botones
+                buttons: {
+                    copyTitle: 'copiado',
+                    copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les donnÃ©es du tableau Ã  votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                    copySuccess: {
+                        _: '%d lineas copiadas',
+                        1: '1 linea copiada'
+                    }
+                },
+            },
+            "pagingType": "full_numbers"
+        });
+        $('#example').show();
+    }); 
     </script>
 </body>
 </html>
