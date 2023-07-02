@@ -17,6 +17,7 @@ createApp({
       imagen: "",
       stock: 0,
       precio: 0,
+      respuesta: false,
     };
   },
   methods: {
@@ -67,6 +68,7 @@ createApp({
         method: "POST", // Establecer el método HTTP como POST
         headers: { "Content-Type": "application/json" },
         redirect: "follow",
+        respuesta: JSON.response,
       };
 
       // Realizar una solicitud fetch para guardar el producto en el servidor

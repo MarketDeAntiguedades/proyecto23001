@@ -1,3 +1,4 @@
+
 console.log(location.search); // Imprime en la consola los argumentos pasados a este formulario
 var id = location.search.substr(4); // Obtiene el valor del argumento 'id' de la URL
 console.log(id);
@@ -11,6 +12,7 @@ createApp({
       imagen: "",
       stock: 0,
       precio: 0,
+      respuesta: "",
       url: "https://mahumada.pythonanywhere.com/productos/" + id,
     };
   },
