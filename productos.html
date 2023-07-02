@@ -59,7 +59,7 @@
                     <p>Cargando...</p>
                 </section>
                 <section v-else>
-<table id="example" class="table table-striped table-bordered" style="width:100%">
+<!--<table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
             <th>Name</th>
@@ -538,9 +538,9 @@
             <th>Salary</th>
         </tr>
     </tfoot>
-</table>                    
-<!--                   <div class="table-responsive">-->
-<!--                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+</table>                    -->
+                   <div class="table-responsive">
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
                                     <th scope="col">Id</th>
@@ -551,28 +551,28 @@
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>-->
+                            <tbody>
                                 <!-- Iterar sobre cada producto -->
-<!--                                <tr class="" v-for="producto in productos">
+                                <tr class="" v-for="producto in productos">
                                     <td scope="row">{{producto.id}}</td>
                                     <td>{{producto.nombre}}</td>
                                     <td>{{producto.precio}}</td>
                                     <td>{{producto.stock}}</td>
-                                    <td>-->
-                                        <!--<img width="150" :src="producto.imagen" :alt="producto.nombre">-->
-<!--                                    </td>
-                                    <td>-->
+                                    <td>
+                                        <img width="150" :src="producto.imagen" :alt="producto.nombre">
+                                    </td>
+                                    <td>
                                         <!-- Botón para editar el producto -->
-<!--                                        <a class="btn btn-primary"
-                                            :href="'producto-update.html?id='+ producto.id">Editar</a>-->
+                                        <a class="btn btn-primary"
+                                            :href="'producto-update.html?id='+ producto.id">Editar</a>
                                         <!-- Botón para eliminar el producto -->
-<!--                                        <button type="button" class="btn btn-danger"
+                                        <button type="button" class="btn btn-danger"
                                             v-on:click="eliminar(producto.id)">Eliminar</button>
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>-->
-                    <!--</div>-->
+                        </table>
+                    </div>
                 </section>
             </div>
         </div>
