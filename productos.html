@@ -16,8 +16,16 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <script src="js/jquery-3.6.4.min.js"></script>
-    <script>
-        $('#example').DataTable();
+    <script type="text/javascript" class="init">
+        dt_demo.init({
+            jquery:function() {
+                $('#example').DataTable();
+            },
+            vanilla: function() {
+                new.DataTable("#example");
+            }
+
+        });
     </script>
     <style>
         .btn-animate {
