@@ -86,7 +86,7 @@ createApp({
   created() {
     this.fetchData(this.url);
     var elVue = this;
-    
+    console.log(this.url);
     document.getElementById("formularioBusqueda").addEventListener("submit", function (event) {
       // Evitar que el formulario se envíe de forma predeterminada
       event.preventDefault();
