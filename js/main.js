@@ -3,7 +3,7 @@ El código se encarga de asignar el contenido HTML al elemento con el id "header
 */
 document.getElementById(
   "header"
-).innerHTML = ` <nav class="navbar navbar-expand-sm navbar-light bg-light">
+).innerHTML = ` <nav class="navbar navbar-expand-sm navbar-light ">
 <div class="container bg-secondary bg-gradient" style="padding: 15px">
   <a class="navbar-brand" href="index.html">Navbar</a>
   <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -35,14 +35,13 @@ document.getElementById(
 `;
 document.getElementById(
     "footer"
-  ).innerHTML = `  <div class="container bg-secondary bg-gradient" style="padding: 15px">
-        <div class="red-social">
+  ).innerHTML = `
+    <div class="grupo-1">
+        <div class="container bg-secondary bg-gradient red-social" style="padding: 15px">
             <a href="#" class="fa fa-facebook"></a>
             <a href="#" class="fa fa-instagram"></a>
             <a href="#" class="fa fa-twitter"></a>
             <a href="#" class="fa fa-youtube"></a>
         </div>
     </div>
-  </div>
-
   `;

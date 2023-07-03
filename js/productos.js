@@ -85,5 +85,39 @@ createApp({
   },
   created() {
     this.fetchData(this.url);
-  },
+    var elVue = this;
+    
+    document.getElementById("formularioBusqueda").addEventListener("submit", function (event) {
+      // Evitar que el formulario se envíe de forma predeterminada
+      event.preventDefault();
+
+      // Obtener el valor del campo de búsqueda
+      var textoBuscado = document.getElementsByName("textoBuscado")[0].value;
+      if(textoBuscado!=""){
+      
+        elVue.cargando = true;
+      
+        // Realizar una solicitud fetch para enviar los datos del formulario a la ruta Flask
+        fetch("https://mahumada.pythonanywhere.com/productos/find/" + textoBuscado )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            // Mostrar los productos que coinciden con el término de búsqueda
+            elVue.productos = data;
+            elVue.cargando = false;
+            elVue.tituloTabla = "Productos filtrados cuyo nombre contienen el texto " + textoBuscado;
+          })
+          .catch((err) => {
+            console.error(err);
+            elVue.error = true;
+            alert("Error al buscar productos!");
+          });
+      } else {
+        elVue.tituloTabla = "Productos"
+        elVue.fetchData(elVue.url);
+
+      }
+    }
+  )},
 }).mount("#app");
