@@ -4,7 +4,7 @@ El código se encarga de asignar el contenido HTML al elemento con el id "header
 document.getElementById(
   "header"
 ).innerHTML = ` <nav class="navbar navbar-expand-sm navbar-light bg-light">
-<div class="container">
+<div class="container bg-secondary bg-gradient" style="padding: 15px">
   <a class="navbar-brand" href="index.html">Navbar</a>
   <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -25,11 +25,24 @@ document.getElementById(
               </div>
           </li>
       </ul>
-      <form class="d-flex my-2 my-lg-0">
-          <input class="form-control me-sm-2" type="text" placeholder="Search">
+      <form class="d-flex my-2 my-lg-0" name="busqueda" method="POST" action="" id="formularioBusqueda">
+          <input class="form-control me-sm-2" type="text" name="textoBuscado"  placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
   </div>
 </div>
 </nav>
 `;
+document.getElementById(
+    "footer"
+  ).innerHTML = `  <div class="container bg-secondary bg-gradient" style="padding: 15px">
+        <div class="red-social">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-youtube"></a>
+        </div>
+    </div>
+  </div>
+
+  `;

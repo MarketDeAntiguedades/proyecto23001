@@ -1,0 +1,77 @@
+/* ******************************** */ 
+/*      Pie de Pagina  - FOOTER     */ 
+/* ******************************** */ 
+
+/*:::::Pie de Pagina*/
+/*.pie-pagina .grupo-1{
+
+        width: 100%;
+        max-width: 1200px;
+        margin: 0;
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap:50px;
+        padding: 0;
+        align-items: center;
+
+}*/
+/*.pie-pagina .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}*/
+/*.pie-pagina .grupo-1 .box figure img{
+    width: 150px;
+}*/
+.pie-pagina .grupo-1 .box h2{
+    color: #fff;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 15px;
+
+}
+.pie-pagina .grupo-1 .box p{
+    color: #efefef;
+    margin-bottom: 10px;
+    font-size: 15px;
+    text-align: left;
+}
+.pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #7a6f5d;
+    text-align: center;
+    transition: all 300ms ease;
+}
+.pie-pagina .grupo-1 .red-social a:hover{
+    color: #c6d1a6;
+}
+.pie-pagina .grupo-2{
+    background-color: #7a6f5d;
+    padding: 5px 0px 2px;
+    text-align: center;
+    color: #fff;
+}
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+.fa {
+    border-radius: 5px;
+}
+
+/* Media Queries -- NOTA: Hay que agregar otros en la hoja principal */
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+}
