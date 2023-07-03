@@ -86,7 +86,6 @@ createApp({
   created() {
     this.fetchData(this.url);
     var elVue = this;
-    console.log(this.url);
     document.getElementById("formularioBusqueda").addEventListener("submit", function (event) {
       // Evitar que el formulario se envíe de forma predeterminada
       event.preventDefault();
@@ -96,6 +95,7 @@ createApp({
       if(textoBuscado!=""){
       
         elVue.cargando = true;
+        console.log(textoBuscado);
       
         // Realizar una solicitud fetch para enviar los datos del formulario a la ruta Flask
         fetch("https://mahumada.pythonanywhere.com/productos/find/" + textoBuscado )
