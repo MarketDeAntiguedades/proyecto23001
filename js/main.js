@@ -45,4 +45,3 @@ document.getElementById(
         </div>
     </div>
   `;
-  

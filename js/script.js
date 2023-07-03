@@ -1,3 +1,7 @@
 $(document).ready(function(){
-    $('#example').DataTable();
-});
+    $('#alertbox').click(function(){
+      $("#error").html("You Clicked on Click here Button");
+        $('#myModal').modal("show");
+      });
+    });
+  
