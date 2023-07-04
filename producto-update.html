@@ -47,8 +47,9 @@
                         </div>
                     <button type="button" class="btn btn-secondary" v-on:click="modificar();bol_updated=true">Grabar</button>
                     <section v-if="bol_updated">
-                        <div class="bg-warning"></div>
+                        <div class="text-success">
                         <p>Registro actualizado. Volviendo a Productos... </p>
+                    </div>
                     </section>
                     
                 </form>
@@ -59,29 +60,7 @@
         <footer id="footer" class="pie-pagina">
             <!-- place footer here -->
         </footer>
-        <button type="button" class="btn btn-info btn-lg" id="alertbox">Click here</button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog" v-if="bol_updated">
-          <div class="modal-dialog">
-          
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Mensaje</h4>
-              </div>
-              <div class="modal-body">
-                <p id="error"></p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-  
+ 
         <!-- Bootstrap JavaScript Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
             integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
