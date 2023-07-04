@@ -5,14 +5,14 @@ document.getElementById(
   "header"
 ).innerHTML = ` <nav class="navbar navbar-expand-sm navbar-light ">
 <div class="container bg-secondary bg-gradient" style="padding: 15px">
-  <a class="navbar-brand" href="index.html">Navbar</a>
+  <a class="navbar-brand" href="index.html"><img src="/images/empresa.png" width=80px></a>
   <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-          <li class="nav-item">
+<!--          <li class="nav-item">
               <a class="nav-link active" href="index.html" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
           </li>
           <li class="nav-item">
@@ -23,7 +23,7 @@ document.getElementById(
               <div class="dropdown-menu" aria-labelledby="dropdownId">
                   <a class="dropdown-item" href="productos.html">Produtos</a>
               </div>
-          </li>
+          </li>-->
       </ul>
       <form class="d-flex my-2 my-lg-0" name="busqueda" method="POST" action="" id="formularioBusqueda">
           <input class="form-control me-sm-2" type="text" name="textoBuscado"  placeholder="Search">
