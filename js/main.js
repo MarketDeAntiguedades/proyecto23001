@@ -5,7 +5,7 @@ document.getElementById(
   "header"
 ).innerHTML = ` <nav class="navbar navbar-expand-sm navbar-light ">
 <div class="container bg-secondary bg-gradient" style="padding: 15px">
-  <a class="navbar-brand" href="index.html"><img src="images/empresa.png" width=80px></a>
+  <a class="navbar-brand" href="index.html"><img src="images/empresa.png" width="80px"></a>
   <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
