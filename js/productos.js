@@ -18,6 +18,10 @@ createApp({
       stock: 0,
       precio: 0,
       respuesta: false,
+      string_busqueda: "",
+      bol_busqueda: false,
+      bol_deleted: false,
+      bol_created: false,
     };
   },
   methods: {
@@ -48,7 +52,12 @@ createApp({
       fetch(url, options)
         .then((res) => res.text()) // Convierte la respuesta en texto (or res.json())
         .then((res) => {
-          location.reload(); // Recarga la página actual después de eliminar el producto
+          bol_deleted=true;
+          cargando = true;
+          setTimeout(() => {
+            location.reload(); // Recarga la página actual después de eliminar el producto
+          }, 1000);
+
         });
     },
     grabar() {
@@ -74,8 +83,12 @@ createApp({
       // Realizar una solicitud fetch para guardar el producto en el servidor
       fetch(this.url, options)
         .then(function () {
-          alert("Registro grabado!");
-          window.location.href = "./productos.html"; // Redirigir a la página de productos
+          bol_created=true;
+          setTimeout(() => {
+            window.location.href = "./productos.html";
+          }, 1000);
+//          alert("Registro grabado!");
+//          window.location.href = "./productos.html"; // Redirigir a la página de productos
         })
         .catch((err) => {
           console.error(err);
@@ -89,13 +102,16 @@ createApp({
     document.getElementById("formularioBusqueda").addEventListener("submit", function (event) {
       // Evitar que el formulario se envíe de forma predeterminada
       event.preventDefault();
+      elVue.bol_busqueda = false;
 
       // Obtener el valor del campo de búsqueda
       var textoBuscado = document.getElementsByName("textoBuscado")[0].value;
       if(textoBuscado!=""){
       
         elVue.cargando = true;
+        elVue.string_busqueda = textoBuscado;
         console.log(textoBuscado);
+        console.log(elVue.respuesta)
       
         // Realizar una solicitud fetch para enviar los datos del formulario a la ruta Flask
         fetch("https://mahumada.pythonanywhere.com/productos/find/" + textoBuscado )
@@ -107,6 +123,8 @@ createApp({
             elVue.productos = data;
             elVue.cargando = false;
             elVue.tituloTabla = "Productos filtrados cuyo nombre contienen el texto " + textoBuscado;
+            elVue.bol_busqueda = true;
+
           })
           .catch((err) => {
             console.error(err);
@@ -116,7 +134,6 @@ createApp({
       } else {
         elVue.tituloTabla = "Productos"
         elVue.fetchData(elVue.url);
-
       }
     }
   )},

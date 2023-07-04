@@ -46,15 +46,24 @@
                 <p>Lo sentimos, ha ocurrido un error.</p>
             </div>
             <div v-else>
-                <section v-if="respuesta">
+<!--                <section v-if="respuesta">
                     <div class="spinner-border"></div>
                     <p>Registro actualizado!!!</p>
-                </section>
+                </section>-->
                 <section v-if="cargando">
                     <div class="spinner-border"></div>
                     <p>Cargando...</p>
                 </section>
                 <section v-else>
+                    <section v-if="bol_busqueda">
+                        <div class="bg-warning"></div>
+                        <p>Resultados para la busqueda "{{string_busqueda}}" </p>
+                    </section>
+                    <section v-if="bol_updated">
+                        <div class="bg-warning"></div>
+                        <p>Registro actualizado!!! </p>
+                    </section>
+                  
                     <div class="table-responsive">
                         <table id="example" class="table table-bordered table-hover" style="width: 100%;">
                             <thead>

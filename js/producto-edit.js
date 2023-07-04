@@ -14,6 +14,7 @@ createApp({
       precio: 0,
       respuesta: "",
       url: "https://mahumada.pythonanywhere.com/productos/" + id,
+      bol_updated: false,
     };
   },
   methods: {
@@ -49,6 +50,7 @@ createApp({
         stock: this.stock,
         imagen: this.imagen,
       };
+      const elem = document.getElementById("alertbox")
       var options = {
         body: JSON.stringify(producto),
         method: "PUT",
@@ -57,8 +59,12 @@ createApp({
       };
       fetch(this.url, options)
         .then(function () {
-          alert("Registro actualizado!");
-          window.location.href = "./productos.html";
+          bol_updated=true;
+          setTimeout(() => {
+            window.location.href = "./productos.html";
+          }, 1000);
+//          alert("Registro actualizado!");
+//          window.location.href = "./productos.html";
         })
         .catch((err) => {
           console.error(err);
