@@ -15,13 +15,14 @@ createApp({
       id: 0,
       nombre: "",
       imagen: "",
-      stock: 0,
-      precio: 0,
+      stock: "",
+      precio: "",
       respuesta: false,
       string_busqueda: "",
       bol_busqueda: false,
       bol_deleted: false,
       bol_created: false,
+      mensaje: "",
     };
   },
   methods: {
@@ -70,7 +71,37 @@ createApp({
         stock: this.stock,
         imagen: this.imagen,
       };
-
+//      console.log(this.error);
+      if  (!this.nombre){
+        this.error = true;
+        this.mensaje="Debe completar el nombre";
+      }else{
+        if (!this.precio>0){
+          this.error = true;
+          this.mensaje="Debe informar un precio mayor a cero"
+        }else{
+          if (!this.stock>0){
+            this.error = true;
+            this.mensaje="Debe informar un stock mayor a cero"
+          }else{
+            this.error = false;
+          }
+        }
+      }
+/*      var forms = document.querySelectorAll('.needs-validation')
+      console.log(forms);
+      Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })*/
+  
       // Configurar las opciones para la solicitud fetch
       var options = {
         body: JSON.stringify(producto), // Convertir el objeto a una cadena JSON
@@ -79,21 +110,22 @@ createApp({
         redirect: "follow",
         respuesta: JSON.response,
       };
-
       // Realizar una solicitud fetch para guardar el producto en el servidor
-      fetch(this.url, options)
-        .then(function () {
-          bol_created=true;
-          setTimeout(() => {
-            window.location.href = "./productos.html";
-          }, 1000);
-//          alert("Registro grabado!");
-//          window.location.href = "./productos.html"; // Redirigir a la página de productos
-        })
-        .catch((err) => {
-          console.error(err);
-          alert("Error al Grabar.");
-        });
+//      console.log(this.nombre);
+      if (!this.error) {
+        this.bol_created=true;
+        this.mensaje="Registro grabado. Volviendo a PRODUCTOS..."
+        fetch(this.url, options)
+            .then(function () {
+              setTimeout(() => {
+                window.location.href = "./productos.html";
+              }, 1000);
+            })
+            .catch((err) => {
+              console.error(err);
+              alert("Error al Grabar.");
+            });
+      }
     },
   },
   created() {

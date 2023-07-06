@@ -15,6 +15,9 @@ createApp({
       respuesta: "",
       url: "https://mahumada.pythonanywhere.com/productos/" + id,
       bol_updated: false,
+      bol_not_updated: false,
+      error: false,
+      mensaje: "",
     };
   },
   methods: {
@@ -50,14 +53,32 @@ createApp({
         stock: this.stock,
         imagen: this.imagen,
       };
-      const elem = document.getElementById("alertbox")
+      if  (!this.nombre){
+        this.error = true;
+        this.mensaje="Debe completar el nombre";
+      }else{
+        if (!this.precio>0){
+          this.error = true;
+          this.mensaje="Debe informar un precio mayor a cero"
+        }else{
+          if (!this.stock>0){
+            this.error = true;
+            this.mensaje="Debe informar un stock mayor a cero"
+          }else{
+            this.error = false;
+          }
+        }
+      }
       var options = {
         body: JSON.stringify(producto),
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         redirect: "follow",
       };
-      fetch(this.url, options)
+      if (!this.error) {
+        this.bol_updated=true;
+        this.mensaje="Registro actualizado. Volviendo a PRODUCTOS..."
+        fetch(this.url, options)
         .then(function () {
           bol_updated=true;
           setTimeout(() => {
@@ -70,7 +91,14 @@ createApp({
           console.error(err);
           alert("Error al actualizar.");
         });
+      }
     },
+    go_back() {
+      bol_not_updated=true;
+      setTimeout(() => {
+        window.location.href = "./productos.html";
+      }, 1000);
+    }
   },
   created() {
     /* Este código define el bloque created() en el cual se llama a la función fetchData(this.url) al crear la instancia de Vue. La función fetchData() se encarga de realizar una solicitud HTTP a la URL especificada en this.url y obtener los datos necesarios para la aplicación.
