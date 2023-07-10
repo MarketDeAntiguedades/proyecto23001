@@ -33,6 +33,33 @@
 </head>
 
 <body style="background-color: rgb(165, 146, 183);">
+
+
+    <div class="container" v-if="bol_modal">
+            <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="alert alert-danger" role="alert">
+<!--                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Alerta</h4>
+              </div>
+              <div class="modal-body">
+                <p id="error"></p>
+              </div>
+              <div class="modal-footer">
+<!--                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <button type="button" class="btn btn-info btn-lg" id="alertbox" hidden></button>
+    </div>
+
     <header id="header">
         <!-- Coloca la barra de navegación aquí -->
     </header>
@@ -58,8 +85,14 @@
                 </section>
                 <section v-else>
                     <section v-if="bol_busqueda">
-                        <div class="bg-warning"></div>
-                        <p>Resultados para la busqueda "{{string_busqueda}}" </p>
+                        <section v-if="reg_count>1">
+                            <div class="bg-warning"></div>
+                            <p>{{reg_count}} registros encontrados para la busqueda "{{string_busqueda}}" </p>
+                        </section>
+                        <section v-if="reg_count==1">
+                            <div class="bg-warning"></div>
+                            <p>{{reg_count}} registro encontrado para la busqueda "{{string_busqueda}}" </p>
+                        </section>
                     </section>
                     <section v-if="bol_updated">
                         <div class="bg-warning"></div>
@@ -117,6 +150,16 @@
     <script src="./js/main.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Enlace de VUE-->
     <script src="./js/productos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+      <script>
+          $(document).ready(function(){
+            $('#alertbox').click(function(){
+                $('#myModal').modal("toggle");
+            });
+          });
+      </script>
+
 </body>
 
 </html>

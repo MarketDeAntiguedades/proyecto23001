@@ -18,10 +18,12 @@ createApp({
       stock: "",
       precio: "",
       respuesta: false,
+      reg_count: 0,
       string_busqueda: "",
       bol_busqueda: false,
       bol_deleted: false,
       bol_created: false,
+      bol_modal: false,
       mensaje: "",
     };
   },
@@ -151,12 +153,26 @@ createApp({
             return response.json();
           })
           .then(function (data) {
+            const modal = document.querySelector(".modal");
+            const openModalBtn = document.getElementById("alertbox");
+            const err_mensaje = document.querySelector("#error")
+            console.log(openModalBtn);
             // Mostrar los productos que coinciden con el término de búsqueda
-            elVue.productos = data;
-            elVue.cargando = false;
-            elVue.tituloTabla = "Productos filtrados cuyo nombre contienen el texto " + textoBuscado;
-            elVue.bol_busqueda = true;
-
+            
+            elVue.reg_count = Object.keys(data).length;
+            if  (elVue.reg_count > 0){
+              elVue.productos = data;
+              elVue.cargando = false;
+              elVue.tituloTabla = "Productos filtrados cuyo nombre contienen el texto " + textoBuscado;
+              elVue.bol_busqueda = true;
+            }else{
+              elVue.cargando=false;
+              elVue.bol_busqueda = true;
+              elVue.bol_modal=true;
+              modal.classList.remove("hidden")
+              err_mensaje.innerText = "No se encontró información para la búsqueda '" + textoBuscado + "'."
+              openModalBtn.click();
+            }
           })
           .catch((err) => {
             console.error(err);
@@ -169,4 +185,5 @@ createApp({
       }
     }
   )},
+
 }).mount("#app");

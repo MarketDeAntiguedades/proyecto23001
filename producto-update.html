@@ -76,7 +76,7 @@
                     <button type="button" class="btn btn-success" v-on:click="modificar()">Grabar</button>&nbsp;
                     <button type="button" class="btn btn-warning" v-on:click="bol_not_updated=true;go_back();">Cancelar</button>
                     <section v-if="bol_not_updated">
-                        <div class="spinner-border"></div>
+                        <div class="spinner-grow spinner-grow-sm"></div>
                         <p class="text-danger">Cancelado. Volviendo a Productos... </p>
                     </section>
                     <section v-if="bol_updated">
